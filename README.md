@@ -1,7 +1,7 @@
 # Code for Paper "Multi-Features Guidance Network for partial-to-partial point cloud registration" (MFGNet)
 This is the official code repository for "Multi-Features Guidance Network for partial-to-partial point cloud registration" [[arxiv](https://arxiv.org/abs/2011.12079)]. The code is largely adapted from https://github.com/jiahaowork/idam.
 
-<div align=center><src="img/Fig1.png"/></div>
+![MFGNet architecture](img/Fig1.png)
 
 
 ## Environment
