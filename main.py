@@ -149,7 +149,7 @@ def main():
     parser = argparse.ArgumentParser(description='Point Cloud Registration')
     parser.add_argument('--exp_name', type=str, default='exp', metavar='N',
                         help='Name of the experiment')
-    parser.add_argument('--num_iter', type=int, default=4, metavar='N',
+    parser.add_argument('--num_iter', type=int, default=3, metavar='N',
                         help='Number of iteration inside the network')
     parser.add_argument('--emb_nn', type=str, default='GNN', metavar='N',
                         help='Feature extraction method. [GNN]')
@@ -171,6 +171,8 @@ def main():
                         help='Divided factor for rotations')  # 旋转角度在pi/4范围内
     parser.add_argument('--pretrained', type=arg_bool, default='False',
                         help='Load pretrained weight')  # 旋转角度在pi/4范围内
+    parser.add_argument('--K_test', type=int, default=256,
+                        help='The number of key points preserved during testing')
 
     args = parser.parse_args()
     print(args)

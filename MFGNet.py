@@ -160,6 +160,7 @@ class MFGNet(nn.Module):
         self.emb_dims = args.emb_dims  # 64
         self.num_iter = args.num_iter  # 4
         self.emb_nn = emb_nn  # GNN,[B, 64, N]
+        self.K_test = args.K_test
         self.significance_fc = Conv1DBlock((self.emb_dims, 64, 32, 1), 1)
         self.head = SVDHead(args=args)
         self.sim_mat_Fconv = nn.ModuleList(
@@ -205,6 +206,10 @@ class MFGNet(nn.Module):
         tgt_sig_score = self.significance_fc(tgt_embedding).squeeze(1)
 
         num_point_preserved = src.size(-1) // 6
+
+        if not self.training:
+            num_point_preserved = self.K_test
+
         if self.training:
             candidates = np.tile(np.arange(src.size(-1)), (src.size(0), 1))
             pos_idx = batch_choice(candidates, num_point_preserved//2, p=pos_probs)

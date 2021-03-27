@@ -58,7 +58,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Point Cloud Registration')
     parser.add_argument('--exp_name', type=str, default='MFGNet_preweight', metavar='N',
                         help='Name of the experiment')
-    parser.add_argument('--num_iter', type=int, default=4, metavar='N',
+    parser.add_argument('--num_iter', type=int, default=3, metavar='N',
                         help='Number of iteration inside the network')
     parser.add_argument('--emb_nn', type=str, default='GNN', metavar='N',
                         help='Feature extraction method. [GNN]')
@@ -78,6 +78,8 @@ if __name__ == '__main__':
                         help='Fraction of points when sampling partial point cloud')
     parser.add_argument('--factor', type=float, default=4, metavar='N',
                         help='Divided factor for rotations')  # 旋转角度在pi/4范围内
+    parser.add_argument('--K_test', type=int, default=256,
+                        help='The number of key points preserved during testing')
 
     args = parser.parse_args()
 
@@ -97,7 +99,7 @@ if __name__ == '__main__':
     trans_RMSE = []
     trans_MAE = []
     # start = time.time()
-    for i in range(50):
+    for i in range(5):
         start = time.time()
         test_stats = test_one_epoch(args, model, test_loader)
         rot_RMSE.append(test_stats[0])
