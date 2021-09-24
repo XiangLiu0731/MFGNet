@@ -28,9 +28,11 @@ This command will run an experiment on the ModelNet40 dataset (automatically dow
 ## Citation
 If you want to use it in your work, please cite it as
 
-	@article{wang2020multi,
-            title={Multi-Features Guidance Network for partial-to-partial point cloud registration},
-            author={Wang, Hongyuan and Liu, Xiang and Kang, Wen and Yan, Zhiqiang and Wang, Bingwen and Ning, Qianhao},
-            journal={arXiv preprint arXiv:2011.12079},
-            year={2020}
-            }
+	@article{wang2021multi,
+  title={Multi-features guidance network for partial-to-partial point cloud registration},
+  author={Wang, Hongyuan and Liu, Xiang and Kang, Wen and Yan, Zhiqiang and Wang, Bingwen and Ning, Qianhao},
+  journal={Neural Computing and Applications},
+  pages={1--12},
+  year={2021},
+  publisher={Springer}
+}
